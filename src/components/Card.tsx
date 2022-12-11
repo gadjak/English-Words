@@ -1,16 +1,24 @@
-import { useState,useEffect } from "react"
-import { Word } from "../types/wordsTypes"
+import { useState, useEffect } from "react";
+import { Word } from "../types/wordsTypes";
+import '../CSS/App.css';
 
-let WordType:('en'|'rus') = 'en';
 
+const initialWordType: 'en' | 'rus' = 'en';
 
-export const Card : React.FC<Word> = ({en,rus})=>{
-    console.log(rus);
-    const [word,setWord] = useState(WordType === 'en'? en : rus);
-    
+interface stringObj{
+word:string
+}
+export const Card: React.FC<stringObj> = ({word}) => {
+    //const [WordType, setWordType] = useState<'en' | 'rus'>(initialWordType);
+
+   
     return (
-        <div>
-            <div className="wordText" onClick={()=>setWord(() => word === en ? rus : en)}>{word}</div>
+        <div className="card">
+            <div className="wordText" onClick={() => {
+             //   setWordType((type) => type === 'en' ? 'rus' : 'en');
+            }}>
+                {/*WordType === 'en' ? en : rus*/word}
+            </div>
         </div>
     )
 }

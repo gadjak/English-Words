@@ -1,14 +1,74 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-  .App{
-    background-color: #85aebd;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  } 
+
+.App {
+  background-color: #85aebd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.cards {
+  width: 300px;
+  height: 300px;
+ 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:focus{  
+    .front{
+      transform: rotateY(180deg);
+    
+    }
+    .back{
+      transform: rotateY(360deg);
+      
+    }
+  }
+}
+
+.card {
+  /* user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 300px;
+  min-height: 300px;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 30px;
+ // transition: all 1s;
+  background: whitesmoke;
+  animation: 3s ease-in 1s infinite reverse both running slidein;*/
+}
+
+.front,
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+.front{
+  background-color: wheat;
+}
+.back {
+  background-color: grey;
+  transform: rotateY(180deg)
+}

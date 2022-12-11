@@ -8,3 +8,7 @@ export interface Word {
 export interface InitialStateWords {
     words: Word[]
 }
+
+export interface objWords {
+    words: Array<Word>
+}

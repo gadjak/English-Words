@@ -1,9 +1,12 @@
 import { RootState } from './../index';
 import { InitialStateWords, Word } from './../../types/wordsTypes';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import data from "../startData/index.json";
+
+
 
 const initialState: InitialStateWords = {
-    words: []
+    words: data
 }
 
 const wordsSlice = createSlice({

@@ -3,22 +3,24 @@ import { Word } from "../types/wordsTypes";
 import '../CSS/App.css';
 
 
-const initialWordType: 'en' | 'rus' = 'en';
 
 interface stringObj{
 word:string
 }
-export const Card: React.FC<stringObj> = ({word}) => {
-    //const [WordType, setWordType] = useState<'en' | 'rus'>(initialWordType);
+export const Card: React.FC<Word> = ({en,rus}) => {
+    const [ShowCardType, setShowCardType] = useState<'en' | 'rus'>('en')
 
    
     return (
-        <div className="card">
-            <div className="wordText" onClick={() => {
-             //   setWordType((type) => type === 'en' ? 'rus' : 'en');
-            }}>
-                {/*WordType === 'en' ? en : rus*/word}
-            </div>
+        <div onClick={() => setShowCardType(type => type == 'en' ? 'rus' : 'en')}>
+          
+                <div className={ShowCardType === 'en' ? "front" : 'front frontReversed'}>
+                    {en}
+                </div>
+                <div className={ShowCardType === 'en' ? "back backNormal" : 'back backReversed'}>
+                    {rus}
+                </div>
+
         </div>
     )
 }

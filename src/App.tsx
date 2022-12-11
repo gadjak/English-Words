@@ -1,50 +1,28 @@
-import React, { useEffect } from 'react';
 import './CSS/App.css'
 import { useAppDispatch, useAppSelector } from './hooks';
-import { addWord } from './store/wordsSlice';
 import { CardList } from './components/CardList';
-import { Word } from "./types/wordsTypes"
-
+import { Route, Routes, NavLink } from 'react-router-dom';
+import { CardAdder } from './components/CardsAdder';
 
 const App = () => {
   const dispatch = useAppDispatch()
   const { words } = useAppSelector(state => state.words);
 
-  function Addword() {
-    dispatch(addWord(
-      { rus: "Мяч", en: "Ball", id: 0 }
-    ))
-    dispatch(addWord(
-      { rus: "Дверь", en: "Door", id: 0 }
-    ))
-    dispatch(addWord(
-      { rus: "Окно", en: "Window", id: 0 }
-    ))
-  }
+  return (
+    <div className="App">
+      <NavLink to="/" className={({ isActive }) =>
+        isActive ? 'activeLink' : undefined
+      }>Учить</NavLink>
+      <NavLink to="/addWords" className={({ isActive }) =>
+        isActive ? 'activeLink' : undefined
+      }>Добавлять</NavLink>
+      <Routes>
+        <Route path='/' element={<CardList words={words} />} />
+        <Route path='/addWords' element={<CardAdder />} />
+      </Routes>
+    </div>
+  );
 
-  useEffect(() => {
-
-
-
-
-  }, []);
-
-
-  if (words && words.length !== 0) {
-    return (
-      <div className="App">
-        <div onClick={()=>Addword()}>Добавить</div>
-        <CardList words={words} />
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <div onClick={()=>Addword()}>Добавить</div>
-        Loading
-      </div>
-    )
-  }
 
 }
 

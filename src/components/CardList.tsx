@@ -7,8 +7,8 @@ import { generateWord } from "../hooks";
 
 export const CardList: React.FC<objWords> = ({ words }) => {
 
-    const [genWord] = useState<Generator<Word>>(generateWord(...words))
-    const [word, setWord] = useState<Word>(words[0]);
+    const [genWord] = useState<Generator<Word>>(()=>generateWord(words))
+    const [word, setWord] = useState<Word>(()=>genWord.next().value);
 
 
 
@@ -24,6 +24,7 @@ export const CardList: React.FC<objWords> = ({ words }) => {
     })
     return (
         <div>
+              
             <div className='cards' onContextMenu={() => {
                 let next = genWord.next()
                 if (!next.done) {
@@ -33,6 +34,7 @@ export const CardList: React.FC<objWords> = ({ words }) => {
                 <Card {...word} />
 
             </div>
+          
         </div>
     )
 }

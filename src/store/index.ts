@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-
 import wordsSlice from './wordsSlice';
+import { checkItem } from "../hooks";
+
+
 
 export const store = configureStore({
   reducer: {

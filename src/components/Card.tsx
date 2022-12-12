@@ -11,10 +11,10 @@ export const Card: React.FC<Word> = ({en,rus}) => {
         <div onClick={() => setShowCardType(type => type == 'en' ? 'rus' : 'en')}>
           
                 <div className={ShowCardType === 'en' ? "front" : 'front frontReversed'}>
-                    {en}
+                    <span>{en}</span>
                 </div>
                 <div className={ShowCardType === 'en' ? "back backNormal" : 'back backReversed'}>
-                    {rus}
+                    <span>{rus}</span>
                 </div>
 
         </div>

@@ -11,7 +11,6 @@ export const CardAdder: React.FC = () => {
     const dispatch = useAppDispatch();
     const [en, setEn] = useState<string>('');
     const [rus, setRus] = useState<string>('');
-    const { words } = useAppSelector(state => state.words);
 
     const setWord = () => {
         const word: Word = {
@@ -24,11 +23,11 @@ export const CardAdder: React.FC = () => {
             setRus('')
             dispatch(addWord(word));
         }
-        console.log(words);
+   
     }
 
     useEffect(() => {
-        //console.log('render')
+
 
     })
     return (

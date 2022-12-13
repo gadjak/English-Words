@@ -2,8 +2,8 @@
 
 
 ## Control
-#left click - show answer
-#right click - skip word
+# left click - show answer
+# right click - skip word
 
 
 ## Demo:

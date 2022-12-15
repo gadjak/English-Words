@@ -3,13 +3,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import data from "../startData/index.json";
 import { checkItem, getItem, setItem } from '../../hooks';
 
-checkItem('words');
+checkItem('words',data);
 
-setItem('words',[...data, ...getItem('words')] )
 const initialState: InitialStateWords = {
     words: getItem('words')
 }
-
+ 
 const wordsSlice = createSlice({
     name: 'words',
     initialState,

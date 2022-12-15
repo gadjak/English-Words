@@ -6,6 +6,7 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export function* generateWord(words: Word[]): Generator<Word> {
+    if(words.length === 0) return {en:'' , ru:'', id:0}
     for (let word of words) {
         yield word;
     }

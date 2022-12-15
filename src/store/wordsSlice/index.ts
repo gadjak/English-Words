@@ -3,10 +3,11 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import data from "../startData/index.json";
 import { checkItem, getItem, setItem } from '../../hooks';
 
-checkItem('words');
+const localStorageAlreadyCreated = checkItem('words');
+
 
 const initialState: InitialStateWords = {
-    words: [...getItem('words'), ...data ] 
+    words:localStorageAlreadyCreated? getItem('words') : [...getItem('words'), ...data ] 
 }
 
 const wordsSlice = createSlice({

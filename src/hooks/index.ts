@@ -19,9 +19,11 @@ export const getItem = (key: string) => {
 
 export const setItem = (key: string, item: any) => localStorage.setItem(key, JSON.stringify(item));
 
-export const checkItem = (key: string) => {
+export const checkItem = (key: string):Boolean => {
     const item = getItem(key);
     if (!item) {
         setItem(key, []);
+        return false;
     }
+    return true;
 }

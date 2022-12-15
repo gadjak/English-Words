@@ -27,9 +27,6 @@
 
 }
 
-.changeCard {
-  transform: translate(350px, 0);
-}
 
 .description {
 
@@ -51,13 +48,47 @@
   background-color: white;
   border-radius: 10px;
 }
+.card-next{
+  position:relative;
+   left: 450px;
+    transition:  none;
+    transform: rotateZ(0deg);
+    visibility: hidden;
+  
+}
+.card-skip-next{
+   position:relative;
+   left: 450px;
+    transition: 1s;
+    visibility: visible;
+    transform: rotateZ(0deg) translateX(-450px);
+    
+  
+}
+.card-prev{
+transition: 0;
+visibility: visible;
+transform: none;
 
-.cards {
+}
+.card-skip-prev{
+ transition: 1s;
+visibility:hidden;
+ transform: rotateZ(25deg) translateX(-500px);
+ opacity: 0;
+}
+.cards{
+  width: 400px;
+  height: 250px;
+  position: relative;
+ 
+}
+.card {
   transition: 1s;
   width: 400px;
   height: 250px;
   perspective: 1000px;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +164,7 @@
   color: #fff;
 }
 
-//
+
 body {
   background: #e6f4fd;
   font-family: 'Roboto', sans-serif;

@@ -7,10 +7,12 @@ import { generateWord } from "../hooks";
 
 export const CardList: React.FC<objWords> = ({ words }) => {
 
-    const [genWord] = useState<Generator<Word>>(()=>generateWord(words))
-    const [word, setWord] = useState<Word>(()=>genWord.next().value);
+    const [genWord] = useState<Generator<Word>>(() => generateWord(words))
+    const [wordNext, setWordNext] = useState<Word>(() => genWord.next().value);
+    const [wordPrev, setWordPrev] = useState<Word>(() => wordNext);
+    const [cardSkip, setCardSkip] = useState<Boolean>(false);
 
-
+    const [ShowCardType, setShowCardType] = useState<'en' | 'rus'>('en')
 
     useEffect(() => {
         //блокируем нажатие провой кнопки мыши
@@ -21,20 +23,40 @@ export const CardList: React.FC<objWords> = ({ words }) => {
         } catch (e) {
             console.log(e);
         }
-    })
+        
+        
+    },[])
+
     return (
         <div>
-              
-            <div className='cards' onContextMenu={() => {
+
+            <div className="cards" onClick={() => setShowCardType(type => type == 'en' ? 'rus' : 'en')} onContextMenu={() => {
+               
+                setWordPrev(wordNext)
+               
                 let next = genWord.next()
                 if (!next.done) {
-                    setWord(next.value)
+                    setCardSkip(false)
+                    setTimeout(()=>setCardSkip(true),20) 
+                    setWordNext(next.value)
                 }
-            }}>
-                <Card {...word} />
+
+            }} >
+
+
+
+                <div className={cardSkip ? 'card-skip-prev' :'card-prev'} >
+                    <Card word={wordPrev} ShowCardType={ShowCardType} />
+                </div>
+
+                <div className={cardSkip ? 'card-skip-next' : 'card-next'} >
+                    <Card word={wordNext} ShowCardType={ShowCardType} />
+                </div>
+
+
 
             </div>
-          
+
         </div>
     )
 }

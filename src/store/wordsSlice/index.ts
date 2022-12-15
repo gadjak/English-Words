@@ -5,6 +5,7 @@ import { checkItem, getItem, setItem } from '../../hooks';
 
 checkItem('words');
 
+setItem('words',data)
 const initialState: InitialStateWords = {
     words: getItem('words')
 }

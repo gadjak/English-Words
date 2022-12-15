@@ -59,7 +59,7 @@
 .card-skip-next{
    position:relative;
    left: 450px;
-    transition: 1s;
+    transition: 0.5s;
     visibility: visible;
     transform: rotateZ(0deg) translateX(-450px);
     
@@ -72,7 +72,7 @@ transform: none;
 
 }
 .card-skip-prev{
- transition: 1s;
+ transition: 0.5s;
 visibility:hidden;
  transform: rotateZ(25deg) translateX(-500px);
  opacity: 0;

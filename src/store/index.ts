@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import optionsSlice from "./optionsSlice";
 import wordsSlice from './wordsSlice';
 
 
@@ -6,7 +7,7 @@ import wordsSlice from './wordsSlice';
 export const store = configureStore({
   reducer: {
     words: wordsSlice,
-    options:[] as any
+    options:optionsSlice
   }
 });
 

@@ -1,21 +1,19 @@
-import { InitialStateWords, Word } from './../../types/wordsTypes';
+import { Word, objWords } from '../../types';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import data from "../startData/index.json";
-import { checkItem, getItem, setItem } from '../../hooks';
+import { getItem, setItem ,checkItem} from '../../hooks';
+import initialData from '../../store/startData/index.json';
 
-checkItem('words',data);
+checkItem('words',initialData)
 
-const initialState: InitialStateWords = {
-    words: getItem('words')
-}
- 
+const initialState: objWords = getItem('words')
+
 const wordsSlice = createSlice({
     name: 'words',
     initialState,
     reducers: {
         addWord: (state, action: PayloadAction<Word>) => {
-            state.words.unshift(action.payload)
-            setItem('words',state.words)
+         /*   state.words.unshift(action.payload)
+            setItem('words',state.words)*/
         }
     }
 })

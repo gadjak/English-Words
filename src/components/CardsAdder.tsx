@@ -4,7 +4,7 @@ import { idText } from 'typescript';
 import '../CSS/App.css';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { addWord } from '../store/wordsSlice';
-import { Word } from '../types/wordsTypes';
+import { Word } from '../types';
 
 
 export const CardAdder: React.FC = () => {

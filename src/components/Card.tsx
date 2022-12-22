@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Word } from "../types/wordsTypes";
+import { Word } from "../types";
 import '../CSS/App.css';
 
 interface CardProps{
@@ -7,7 +7,9 @@ interface CardProps{
     ShowCardType:'en'|'rus';
 }
 export const Card: React.FC<CardProps>= ({word,ShowCardType}) => {
-    
+    useEffect(()=>{
+       // console.log('rerender Card')
+    },[])
     return (
         <div className='card' >
           

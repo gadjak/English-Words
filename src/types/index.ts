@@ -5,7 +5,7 @@ export interface Word {
     id: number,
 }
 
-export interface CardProps {
+export interface Store {
     words: {
         [key: string]: Word[]
     }

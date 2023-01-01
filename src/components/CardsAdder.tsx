@@ -4,10 +4,10 @@ import { idText } from 'typescript';
 import '../CSS/App.css';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { addWord } from '../store/wordsSlice';
-import { Word } from '../types';
+import { Options, Word } from '../types';
 
 
-export const CardAdder: React.FC = () => {
+export const CardAdder: React.FC<Options> = (options) => {
     const dispatch = useAppDispatch();
     const [en, setEn] = useState<string>('');
     const [rus, setRus] = useState<string>('');
@@ -27,7 +27,7 @@ export const CardAdder: React.FC = () => {
     }
 
     useEffect(() => {
-
+        console.log(options.selectedGroups)
 
     })
     return (

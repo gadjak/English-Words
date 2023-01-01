@@ -7,10 +7,9 @@ import { CardAdder } from './components/CardsAdder';
 import {SelectCard} from './components/SelectCard';
 const App = () => {
 
-  const {words,options} = useAppSelector(state => state);
+  const {words,options} = useAppSelector(state => state.words);
   useEffect(()=>{
-   /* console.log(words)
-    console.log(options)*/
+   
   },[])
 
   return (
@@ -34,7 +33,7 @@ const App = () => {
       </div>
       <Routes>
         <Route path='/' element={<CardList options={options} words={words} />} />
-        <Route path='/addWords' element={<CardAdder />} />
+        <Route path='/addWords' element={<CardAdder {...options}/>} />
       </Routes>
     </div>
   );

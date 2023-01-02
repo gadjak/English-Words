@@ -27,7 +27,7 @@ export const CardAdder: React.FC<Options> = (options) => {
     }
 
     useEffect(() => {
-        console.log(options.selectedGroups)
+      
 
     })
     return (

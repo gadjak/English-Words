@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from './hooks';
 import { CardList } from './components/CardList';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { CardAdder } from './components/CardsAdder';
+import { AllCards } from './components/AllCards';
 import {SelectCard} from './components/SelectCard';
 const App = () => {
 
@@ -30,10 +31,14 @@ const App = () => {
         <NavLink to="/addWords" className={({ isActive }) =>
           isActive ? 'activeLink Link' : 'Link'
         }>Добавлять</NavLink>
+         <NavLink to="/allCards" className={({ isActive }) =>
+          isActive ? 'activeLink Link' : 'Link'
+        }>Мои слова</NavLink>
       </div>
       <Routes>
         <Route path='/' element={<CardList options={options} words={words} />} />
         <Route path='/addWords' element={<CardAdder {...options}/>} />
+        <Route path='/allCards' element={<AllCards options={options} words={words}/>} />
       </Routes>
     </div>
   );

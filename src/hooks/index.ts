@@ -15,7 +15,7 @@ export function* generateWord(wordGroups: objWords, selectedNames: Array<string>
     let uniqueWords = new Set(words.map((item) => JSON.stringify(item)))
     words = Array.from(uniqueWords).map((item) => JSON.parse(item))
 
-    if (words.length === 0) yield { en: '!!!Choose group!!!', rus: '!!!Выберете группу!!!', id: 0 }
+    if (words.length === 0) yield { en: '!!!Choose group!!!', rus: '!!!Выберете группу!!!', key: 'null', group: '' }
 
     for (let word of words) {
         yield word;
@@ -31,7 +31,7 @@ export const getItem = (key: string) => {
     return JSON.parse(item);
 };
 
-export const checkItem = (key: string, initialData: any ) => {
+export const checkItem = (key: string, initialData: any) => {
     const item = localStorage.getItem(key);
 
     if (!item) {

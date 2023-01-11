@@ -20,8 +20,30 @@ const wordsSlice = createSlice({
     reducers: {
         addWord: (state, action: PayloadAction<Word>) => {
             state.options.selectedGroups.forEach((item) => {
+                action.payload.group = item
                 state.words[item].unshift(action.payload)
             })
+            setItem('words', state.words)
+        },
+        delWord: (state, action: PayloadAction<Word>) => {
+            state.words[action.payload.group] = state.words[action.payload.group].filter(
+                (word) =>
+                    word.key !== action.payload.key
+            )
+            setItem('words', state.words)
+        },
+        editWord: (state, action: PayloadAction<Word>) => {
+            const word = action.payload;
+            state.words[word.group] = state.words[word.group].map(
+                (item) =>
+                    item.key === word.key ?
+                        (function () {
+                            word.key = word.en + word.rus;
+                            return word;
+                        }())
+                        : item
+            )
+            console.log(word)
             setItem('words', state.words)
         },
         setSelectedGroups: (state, action: PayloadAction<Options["selectedGroups"]>) => {
@@ -36,7 +58,7 @@ const wordsSlice = createSlice({
             for (var nameGroup in state.words) {
                 if (state.options.selectedGroups.includes(nameGroup))
                     delete state.words[nameGroup]
-                    state.options.selectedGroups = state.options.selectedGroups.filter((item)=>item!==nameGroup)
+                state.options.selectedGroups = state.options.selectedGroups.filter((item) => item !== nameGroup)
             }
             setItem('words', state.words)
             setItem('options', state.options)
@@ -44,6 +66,6 @@ const wordsSlice = createSlice({
     }
 })
 
-export const { addWord, setSelectedGroups, addWordGroup, delWordGroup } = wordsSlice.actions;
+export const { addWord, delWord, setSelectedGroups, addWordGroup, delWordGroup, editWord } = wordsSlice.actions;
 export default wordsSlice.reducer;
 

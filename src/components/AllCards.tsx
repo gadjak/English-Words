@@ -1,31 +1,35 @@
-import { useState, useEffect } from "react";
+
 import { Word, Store } from "../types";
 import '../CSS/App.css';
 
+import { Card } from "./Card";
 //let words:Word[] = []
 
 export const AllCards: React.FC<Store> = ({ words, options }) => {
-    useEffect(() => {
-        // console.log('rerender Card')
-    }, [])
+
+
+
     const Cards = () => {
 
-        let selectedWords = []
+        let selectedWords = options.selectedGroups.reduce<Word[]>((acc, name) => {
+            acc.push(...words[name])
+            return acc;
+        }, [])
 
-        for (let name of options.selectedGroups) {
-            selectedWords.push(...words[name])
-        }
+        return (
+            <>
 
+                {selectedWords.map((word) =>
 
-        return <>
-            {selectedWords.map((word) =>
-                <div className='single-card' >
-                    <span>En: {word.en}</span>
-                    <span>Rus: {word.rus}</span>
-                </div>
-            )}
-        </>
+                    <div key={word.en}><Card word={word} /></div>
+
+                )}
+            </>
+        )
+
     }
+
+
     return (
 
         <div className='all-cards' >

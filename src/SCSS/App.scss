@@ -2,21 +2,31 @@
   margin: 0;
   padding: 0;
 }
-
+body{
+  height: 100%;
+}
 .App {
-  background:
-    /*#A4DADA*/
-    linear-gradient(to top, #55EFCB 0%, #5BCAFF 100%);
-  min-height: 100vh;
+  background:linear-gradient(to top, #55EFCB 0%, #5BCAFF 100%);
+  min-height: 100vh;//убрать
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+ // justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-
+.select-card{
+  position: absolute;
+  top: 10px;
+  margin-top: 10px;
+}
+.links {
+  position: absolute;
+  top: 120px;
+  display: flex;
+  justify-content: space-around;
+}
 .frontReversed {
   transform: rotateX(180deg);
 
@@ -77,11 +87,17 @@ visibility:hidden;
  transform: rotateZ(25deg) translateX(-500px);
  opacity: 0;
 }
+.up-cards{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .cards{
   width: 400px;
   height: 250px;
   position: relative;
- 
 }
 .card {
   transition: 1s;
@@ -117,20 +133,57 @@ visibility:hidden;
     transform: rotateX(180deg)
   }
 }
-.single-card{
-  transition: 1s;
-  width: 400px;
-  height: 250px;
-  background-color: #fff;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  perspective: 1000px;
-  margin: 10px;
+.confirm-del-word{
+ 
+ 
 }
+.all-cards{
+  display: grid;
+  // position: absolute;
+  margin: 10px;
+  margin-top: 250px;
+
+  // top: 250px;
+  grid-template-columns:repeat(3,1fr);
+  grid-gap: 1em;
+  grid-column-start: 1;
+  .single-card{
+    transition: 1s;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+    color: black;
+   
+    border-radius: 10px;
+    perspective: 1000px;
+    .card-text{
+
+      display: flex;
+      grid-gap:10px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .acts-card{
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      button{
+        margin: 5px;
+      }
+    }
+    
+  }
+}
+.text-field{
+  input{
+    padding: 12px;
+  }
+  //padding: 10px;
+}
+
+
 
 
 .Link {
@@ -168,10 +221,7 @@ visibility:hidden;
   transition: .5s ease-in-out;
 }
 
-.links {
-  display: flex;
-  justify-content: space-around;
-}
+
 
 .activeLink {
   background: #fe6637;
@@ -180,7 +230,7 @@ visibility:hidden;
 
 
 body {
-  background: #e6f4fd;
+
   font-family: 'Roboto', sans-serif;
 }
 

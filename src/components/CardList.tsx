@@ -1,6 +1,6 @@
 import { Store, Word } from "../types"
 import { useState, useEffect } from "react"
-import { Card } from "./Card";
+import { LearnCard } from "./LearnCard";
 import { generateWord } from "../hooks";
 
 
@@ -46,19 +46,19 @@ export const CardList: React.FC<Store> = ({ words, options }) => {
     }
     if (genWord && wordPrev && wordNext) {
         return (
+            <div className="up-cards">
+                <div className="cards"
+                    onClick={() => setShowCardType(type => type == 'en' ? 'rus' : 'en')}
+                    onContextMenu={() => changeCard()} >
 
-            <div className="cards"
-                onClick={() => setShowCardType(type => type == 'en' ? 'rus' : 'en')}
-                onContextMenu={() => changeCard()} >
+                    <div className={cardSkip ? 'card-skip-prev' : 'card-prev'} >
+                        <LearnCard word={wordPrev} ShowCardType={ShowCardType} />
+                    </div>
 
-                <div className={cardSkip ? 'card-skip-prev' : 'card-prev'} >
-                    <Card word={wordPrev} ShowCardType={ShowCardType} />
+                    <div className={cardSkip ? 'card-skip-next' : 'card-next'} >
+                        <LearnCard word={wordNext} ShowCardType={ShowCardType} />
+                    </div>
                 </div>
-
-                <div className={cardSkip ? 'card-skip-next' : 'card-next'} >
-                    <Card word={wordNext} ShowCardType={ShowCardType} />
-                </div>
-
             </div>
 
         )

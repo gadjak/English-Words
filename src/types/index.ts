@@ -2,7 +2,8 @@
 export interface Word {
     rus: string,
     en: string,
-    id: number,
+    key: string,
+    group: string,
 }
 
 export interface Store {

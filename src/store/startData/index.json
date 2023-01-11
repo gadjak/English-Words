@@ -3,44 +3,53 @@
         {
             "rus": "Стул",
             "en": "Chair",
-            "id": 1
+            "key": "ChairСтул",
+            "group":"base"
         },
         {
             "rus": "Мяч",
             "en": "Ball",
-            "id": 2
+            "key": "BallМяч",
+            "group":"base"
+
         },
         {
             "rus": "Дверь",
             "en": "Door",
-            "id": 3
+            "key": "DoorДверь",
+            "group":"base"
         },
         {
             "rus": "Окно",
             "en": "Window",
-            "id": 4
+            "key": "WindowОкно",
+            "group":"base"
         }
     ],
     "base2": [
         {
             "rus": "Бедный",
             "en": "poor",
-            "id": 1
+            "key": "poorБедный",
+            "group":"base2"
         },
         {
             "rus": "Хороший",
             "en": "good",
-            "id": 2
+            "key": "goodХороший",
+            "group":"base2"
         },
         {
             "rus": "Пара",
             "en": "couple",
-            "id": 3
+            "key": "coupleПара",
+            "group":"base2"
         },
         {
             "rus": "Ответственный",
             "en": "responsible",
-            "id": 4
+            "key": "responsibleОтветственный",
+            "group":"base2"
         }
     ]
 }

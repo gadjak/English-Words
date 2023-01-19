@@ -7,9 +7,10 @@
 
 
 ## Demo:
-https://english-words-nine.vercel.app/
-##Stack:
-###React
-###Redux Toolkit
-###Typescript
-###CSS/SCSS
+### https://english-words-nine.vercel.app/
+
+## Stack:
+### React
+### Redux Toolkit
+### Typescript
+### CSS/SCSS

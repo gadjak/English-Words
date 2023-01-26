@@ -15,13 +15,6 @@ const App = () => {
 
   return (
     <div className="App">
-      {/*<div className="description">
-        
-        <span>Левая кнопка мыши - перевернуть карточку</span> 
-        <span> Правая кнопка мыши - показать следующую карточку</span>
-        
-      </div>*/}
-     
         <div className='select-card'>
           <SelectCard options={options} words={words} />
         </div>

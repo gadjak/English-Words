@@ -58,6 +58,12 @@ export const CardList: React.FC<Store> = ({ words, options }) => {
                     <div className={cardSkip ? 'card-skip-next' : 'card-next'} >
                         <LearnCard word={wordNext} ShowCardType={ShowCardType} />
                     </div>
+                    <div className="description">
+
+                        <span>left click - reverse</span>
+                        <span>right click - next</span>
+
+                    </div>
                 </div>
             </div>
 

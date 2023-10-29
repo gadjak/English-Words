@@ -3,7 +3,7 @@ services:
     web:
         build: .
         command: ["npm", "start"]
-        image: english-words
+        image: web
         ports: 
           - '3000:3000'
         volumes:

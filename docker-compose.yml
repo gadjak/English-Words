@@ -2,7 +2,6 @@ version: '1.0'
 services:
     web:
         build: .
-        command: ["npm", "start"]
         image: web
         ports: 
           - '3000:3000'

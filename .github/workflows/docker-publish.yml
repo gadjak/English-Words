@@ -10,19 +10,19 @@ env:
   IMAGE_NAME: ${{ github.actor }}/<image-name>:latest
 
 jobs:
-    publish:
-        name: publish image
-        runs-on: ubuntu-latest
+    # publish:
+    #     name: publish image
+    #     runs-on: ubuntu-latest
 
-        steps:
-        - uses: actions/checkout@v3
-        - name: Login
-          run: |
-            docker login -u gadjak -p qazwsxedc123A
-        - name: Build and Publish
-          run: |
-            docker build -t gadjak/english-words:dev .
-            docker push gadjak/english-words:dev
+    #     steps:
+    #     - uses: actions/checkout@v3
+    #     - name: Login
+    #       run: |
+    #         docker login -u gadjak -p qazwsxedc123A
+    #     - name: Build and Publish
+    #       run: |
+    #         docker build -t gadjak/english-words:dev .
+    #         docker push gadjak/english-words:dev
 
     deploy:
         needs: publish
@@ -32,7 +32,7 @@ jobs:
         steps:
         - name: generate ssh key
           run: |
-              echo $SSH_KEY > english.txt
+              echo ${{ $SSH_KEY }} > english.txt
               openssl rsa -in english.txt -out english.pem
         - name: connect ssh
           run: |

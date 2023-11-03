@@ -20,6 +20,7 @@ jobs:
             docker login -u gadjak -p qazwsxedc123A
         - name: Build and Publish
           run: |
+            node -v
             docker build -t gadjak/english-words:dev .
             docker push gadjak/english-words:dev
 

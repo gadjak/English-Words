@@ -1,0 +1,41 @@
+name: publish
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.actor }}/<image-name>:latest
+
+jobs:
+    publish:
+        name: publish image
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v3
+        - name: Login
+          run: |
+            docker login -u gadjak -p qazwsxedc123A
+        - name: Build and Publish
+          run: |
+            docker build -t english-words:dev
+            docker push gadjak/english-words:dev
+
+    deploy:
+        needs: publish
+        name: deploy image
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: generate ssh key
+          run: |
+              echo ${{ secrets.SSH_KEY }} > english.txt
+              openssl rsa -in english.txt -out english.pem
+        - name: connect ssh
+          run: |
+              ssh -i "english.pem" ec2-user@ec2-16-171-206-188.eu-north-1.compute.amazonaws.com
+        - name: remove old image and pull new
+          run:  echo "Success"

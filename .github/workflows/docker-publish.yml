@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  SSH_KEY: "-----BEGIN RSA PRIVATE KEY-----
+  SSH_KEY: "'-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAqnzp6V9AYXAu2bOmxQQaQYURY778ILvigE/Y3BQQPiS47TdK
 Pyxlf0pfFOWQEzxTuvOx+GL3zr8XHE1HLurjzJELv9TJU2inn6NvFW1cAJqhWvFs
 sij1kz4IsqdMWrgmLnUrDDfcqCOug1nqm9Hp6l2OUDNw/db77Pnfi1DBpDhBLRl4
@@ -31,7 +31,7 @@ jRfvNbOVhUEJD7v+PISb6ozzcSVGGZUFXcJwcfXLr4vH4Nj4q92CU74zIafjz1F1
 ecIxsnkCgYAW7GMoRtMhbkg6EhrDyM91S86SxrQcbBaPq3V1CJR7eEvPxGFnhp9U
 XhoS3kwtVljopdqJ+PkaZD+UqVdP65VU6CmA0R39dcl5cCgJk2PVhw7Gug1RxIic
 J9L4P+WmezNhsfOWBgyXqfn/ptl2xsu30Xt1hKvIRKdoDMcsubnEzw==
------END RSA PRIVATE KEY-----"
+-----END RSA PRIVATE KEY-----'"
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.actor }}/<image-name>:latest
 

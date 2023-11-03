@@ -12,30 +12,16 @@ jobs:
     publish:
         name: publish image
         runs-on: ubuntu-latest
+
         steps:
         - uses: actions/checkout@v3
         - name: Login
           run: |
-            ls -a
-            echo "Hello"
-            echo ${{ env.REGISTRY }}
-            echo "$REGISTRY"
-            echo "$SSH_KEY"
-            echo "${{ env.SSH_KEY }}"
-
-    # publish:
-    #     name: publish image
-    #     runs-on: ubuntu-latest
-
-    #     steps:
-    #     - uses: actions/checkout@v3
-    #     - name: Login
-    #       run: |
-    #         docker login -u gadjak -p qazwsxedc123A
-    #     - name: Build and Publish
-    #       run: |
-    #         docker build -t gadjak/english-words:dev .
-    #         docker push gadjak/english-words:dev
+            docker login -u gadjak -p qazwsxedc123A
+        - name: Build and Publish
+          run: |
+            docker build -t gadjak/english-words:dev .
+            docker push gadjak/english-words:dev
 
     deploy:
         needs: publish

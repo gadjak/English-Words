@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
 
   }, [])
-  console.log('realtime ci/cd build)')
+  console.log('removed build)')
   return (
     <div className="App">
         <div className='select-card'>

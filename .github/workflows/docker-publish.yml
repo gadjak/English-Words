@@ -37,17 +37,18 @@ jobs:
     #         docker build -t gadjak/english-words:dev .
     #         docker push gadjak/english-words:dev
 
-        # - name: generate ssh key
-        #   run: |
-        #       ls -a
-        #       echo "${{ env.SSH_KEY }}" > english.txt
-        #       openssl rsa -in english.txt -out english.pem
     deploy:
         needs: publish
         name: deploy image
         runs-on: ubuntu-latest
 
         steps:
+        - name: generate ssh key
+          run: |
+              ls -a
+              echo "${{ env.SSH_KEY }}" > english.txt
+              cat english.txt
+              openssl rsa -in english.txt -out english.pem
         - name: connect ssh
           run: |
               ssh -tt -i "english.pem" ec2-user@ec2-16-171-206-188.eu-north-1.compute.amazonaws.com

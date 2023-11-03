@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
 
   }, [])
-  console.log("DOCKER RABOTAET")
+  console.log('realtime ci/cd build)')
   return (
     <div className="App">
         <div className='select-card'>
@@ -21,7 +21,7 @@ const App = () => {
         <div className="links">
           <NavLink to="/" className={({ isActive }) =>
             isActive ? 'activeLink Link' : 'Link'
-          }>УчитьУчитьУчитьУчитьУчить</NavLink>
+          }>Учить</NavLink>
           <NavLink to="/addWords" className={({ isActive }) =>
             isActive ? 'activeLink Link' : 'Link'
           }>Добавлять</NavLink>

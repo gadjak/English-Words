@@ -21,7 +21,7 @@ const App = () => {
         <div className="links">
           <NavLink to="/" className={({ isActive }) =>
             isActive ? 'activeLink Link' : 'Link'
-          }>Учить</NavLink>
+          }>УчитьУчитьУчитьУчитьУчить</NavLink>
           <NavLink to="/addWords" className={({ isActive }) =>
             isActive ? 'activeLink Link' : 'Link'
           }>Добавлять</NavLink>

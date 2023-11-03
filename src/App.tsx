@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
 
   }, [])
-   
+  console.log("DOCKER RABOTAET")
   return (
     <div className="App">
         <div className='select-card'>

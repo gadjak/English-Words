@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
 
   }, [])
-  
+   
   return (
     <div className="App">
         <div className='select-card'>

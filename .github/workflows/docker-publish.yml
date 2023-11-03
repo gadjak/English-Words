@@ -53,6 +53,6 @@ jobs:
         - uses: actions/checkout@v3
         - name: connect ssh
           run: |
-              ssh -tt -i "english.pem" ec2-user@ec2-16-171-206-188.eu-north-1.compute.amazonaws.com
+              ssh -o StrictHostKeyChecking=no -tt -i "english.pem" ec2-user@ec2-16-171-206-188.eu-north-1.compute.amazonaws.com
         - name: remove old image and pull new
           run:  echo "Success"

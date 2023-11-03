@@ -20,6 +20,9 @@ jobs:
             echo "Hello"
             echo ${{ env.REGISTRY }}
             echo "$REGISTRY"
+            echo "$SSH_KEY"
+            echo ${{ env.SSH_KEY }}
+
     # publish:
     #     name: publish image
     #     runs-on: ubuntu-latest

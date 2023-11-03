@@ -18,9 +18,6 @@ jobs:
         - name: Login
           run: |
             echo "Hello"
-            echo ${{ env.REGISTRY }}
-            echo "$REGISTRY"
-            echo ${{ env.SSH_KEY }}
 
     # publish:
     #     name: publish image

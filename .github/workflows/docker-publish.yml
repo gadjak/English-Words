@@ -54,6 +54,6 @@ jobs:
         - name: connect ssh
           run: |
               chmod 400 english.pem
-              ssh -o StrictHostKeyChecking=no -tt -i "english.pem" ec2-user@ec2-16-171-206-188.eu-north-1.compute.amazonaws.com && exit
+              ssh -o StrictHostKeyChecking=no -tt -i "english.pem" ec2-user@ec2-16-171-206-188.eu-north-1.compute.amazonaws.com 'exit'
         - name: remove old image and pull new
           run:  echo "Success"

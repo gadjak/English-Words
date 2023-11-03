@@ -44,13 +44,12 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-        # - name: generate ssh key
-        #   run: |
-        #       ls -a
-        #       echo "${{ env.SSH_KEY }}" > english.txt
-        #       cat english.txt
-        #       openssl rsa -in english.txt -out english.pem
-        - uses: actions/checkout@v3
+        - name: generate ssh key
+          run: |
+              ls -a
+              echo "${{ env.SSH_KEY }}" > english.txt
+              cat english.txt
+              openssl rsa -in english.txt -out english.pem
         - name: connect ssh
           run: |
               chmod 400 english.pem

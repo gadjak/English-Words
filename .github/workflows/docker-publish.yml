@@ -5,33 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  SSH_KEY: "-----BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEAqnzp6V9AYXAu2bOmxQQaQYURY778ILvigE/Y3BQQPiS47TdK
-Pyxlf0pfFOWQEzxTuvOx+GL3zr8XHE1HLurjzJELv9TJU2inn6NvFW1cAJqhWvFs
-sij1kz4IsqdMWrgmLnUrDDfcqCOug1nqm9Hp6l2OUDNw/db77Pnfi1DBpDhBLRl4
-KULj00wC+BO9tleFyp/pMJfB1ux8/M5WN+WZk+B87t1XR0CMrrZ3cQFRCG+wsUEd
-0JWyuM56FZbqyeEbnGAshTuHef6p+OK8Z2t1rXtq44eUq1RsCyA279MLj+QIK/Pw
-E4uYw/NRIoO+UGIfy9l2g8hf8BbLEhJlYIf1XwIDAQABAoIBAFhD9651PBW2SOs5
-EZxqtVU6mXg0xsADxg58SGAYmxgxVvSpbW0rhRjT3kopV+A9mXPu+zMHuhh14ncq
-ozHtNicQ6S5V8i2Wv0HtEXPcfIdrhyJYX9gVUJ78vPARoXxOXqYqzzCyMzFx18X1
-ZXtqwFowOZ/YIiWpiiB0dYHhO3/TLib5boVjqN5S3BRK6ubHhojrAvTyZogogzcf
-q8z6l8EYUGKOsmMSasfklBT90QF8ijejFJunmWt+2/Lk91gUEjKvfdWa7PmB+Qvx
-4Xe2cM1uL12GsqAioSy+2zSzWcyOLhOCjSWDKV8GuJSDv74QkdGtOmwyxShZA1Jq
-HbBKW6ECgYEA7DNFLNc7C6bKzvrtX54sXme9YdKLveDaMi4+lzJKeXD+o0JcFwJk
-Z/yYyMUC3i8QMa9hCz+vP99jXqTY6+aRWtY/c0PBKJXgHP4qsi+CTMljnrtJNfx3
-mdbDFVE32Bv/eyxH/Za/oBZy6YATXBKMuNvDMM/iiXUdfksjzSss7vcCgYEAuMd+
-Fug0MRGKho1Thch5wyQJ9ajh7wb+kw9dq8MlqQi7HlOG159RWP63kbe0V5oeoH2O
-rQFoqpFoRkRySbIbmauaJejo4ni/Y8Eg/potRYhWxtUogOKztNRJRf1SQK/vhDBF
-fzr8x9C0okeUjWKLgf398lXdGwpXcr9gT6sSStkCgYEAoBi8SYF1NxeNna99F3N5
-tV9xgQ2ZxFDU9HBd4lOnIRtSrUv8aWgosEcJNAQ9RmX1/wdVqq821P9QNkVb9sFo
-Qn63sSP6l8zGhEBOpkoHco6KZHujSuFeG7ryrc9IH8YSa+V+wkbcieDNcLFr7dtw
-4JesfLhbXzovjHvXv2gFY88CgYEAjkXkWwTtcr6b16AnqEHFJzCvjnw7gkzzZQ4W
-xLLcY3t6gA42K/3ap9hwRX2aGT1syYwDeEg2a+bL0BbRnNbLk5XiecAM2Ju6WbeR
-jRfvNbOVhUEJD7v+PISb6ozzcSVGGZUFXcJwcfXLr4vH4Nj4q92CU74zIafjz1F1
-ecIxsnkCgYAW7GMoRtMhbkg6EhrDyM91S86SxrQcbBaPq3V1CJR7eEvPxGFnhp9U
-XhoS3kwtVljopdqJ+PkaZD+UqVdP65VU6CmA0R39dcl5cCgJk2PVhw7Gug1RxIic
-J9L4P+WmezNhsfOWBgyXqfn/ptl2xsu30Xt1hKvIRKdoDMcsubnEzw==
------END RSA PRIVATE KEY-----"
+  SSH_KEY: "${{ secrets.SSH_KEY }}"
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.actor }}/<image-name>:latest
 
@@ -71,7 +45,7 @@ jobs:
         steps:
         - name: generate ssh key
           run: |
-              echo "${{ env.SSH_KEY }}" > english.txt
+              echo ${{ env.SSH_KEY }} > english.txt
               openssl rsa -in english.txt -out english.pem
         - name: connect ssh
           run: |

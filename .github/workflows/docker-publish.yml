@@ -6,7 +6,7 @@ on:
 
 env:
   SSH_KEY: ${{ secrets.SSH_KEY }}
-  SSH_COMMANDS: 'cd English-Words && sudo docker login -u gadjak -p qazwsxedc123A && sudo docker kill gadjak/english-words:dev && sudo docker rm gadjak/english-words:dev && sudo docker image pull gadjak/english-words:dev && sudo docker run -d -p 443:443 -p 80:80 gadjak/english-words:dev && exit'
+  SSH_COMMANDS: 'sudo docker login -u gadjak -p qazwsxedc123A && sudo docker kill $(docker ps -q) && sudo docker image pull gadjak/english-words:dev && sudo docker run -d -p 443:443 -p 80:80 gadjak/english-words:dev && exit'
 
 jobs:
     publish:

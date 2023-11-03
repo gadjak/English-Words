@@ -32,7 +32,7 @@ jobs:
         steps:
         - name: generate ssh key
           run: |
-              echo ${{ secrets.SSH_KEY }} > english.txt
+              echo $SSH_KEY > english.txt
               openssl rsa -in english.txt -out english.pem
         - name: connect ssh
           run: |

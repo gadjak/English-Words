@@ -10,6 +10,14 @@ env:
   IMAGE_NAME: ${{ github.actor }}/<image-name>:latest
 
 jobs:
+    publish:
+        name: publish image
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - name: Login
+          run: |
+            echo "Hello"
     # publish:
     #     name: publish image
     #     runs-on: ubuntu-latest
